@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'otp_verification/verification.dart';
 
@@ -48,11 +49,11 @@ class RegisterPage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 32.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(height: 40),
+              SizedBox(height: 40.h),
 
               // Logo
               Center(
@@ -60,53 +61,53 @@ class RegisterPage extends StatelessWidget {
                   children: [
                     Image.asset(
                       'assets/images/brone_logo.png', // make sure you have it
-                      height: 90,
+                      height: 90.h,
                     ),
-                    const SizedBox(height: 8),
+                    SizedBox(height: 8.h),
                   ],
                 ),
               ),
 
-              const SizedBox(height: 40),
+               SizedBox(height: 40.h),
 
               // Title
-              const Text(
+              Text(
                 "Ro’yxatdan o’tish",
                 style: TextStyle(
-                  fontSize: 22,
+                  fontSize: 22.sp,
                   fontWeight: FontWeight.w700,
                   color: Colors.black,
                 ),
               ),
 
-              const SizedBox(height: 8),
+               SizedBox(height: 8.h),
 
               // Subtitle
-              const Text(
+               Text(
                 "Xizmatlardan foydalanish uchun\ntelefon raqamingizni kiriting.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 14.sp,
                   color: Colors.black54,
-                  height: 1.4,
+                  height: 1.4.h,
                 ),
               ),
 
-              const SizedBox(height: 32),
+              SizedBox(height: 32.h),
 
               // Phone Input Field
-              const Align(
+              Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Telefon raqamingiz",
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w500,
                     color: Colors.black87,
                   ),
                 ),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8.h),
 
               Container(
                 decoration: BoxDecoration(
@@ -116,18 +117,18 @@ class RegisterPage extends StatelessWidget {
                 child: Row(
                   children: [
                     Container(
-                      width: 70,
-                      height: 56,
+                      width: 70.w,
+                      height: 56.h,
                       alignment: Alignment.center,
                       decoration: const BoxDecoration(
                         border: Border(
                           right: BorderSide(color: Colors.black12),
                         ),
                       ),
-                      child: const Text(
+                      child: Text(
                         "+998",
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -143,14 +144,14 @@ class RegisterPage extends StatelessWidget {
                           PhoneInputFormatter(),
                         ],
                         // --- END: Added Formatters ---
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           hintText: "00 000-00-00",
                           border: InputBorder.none,
-                          contentPadding: EdgeInsets.symmetric(horizontal: 16),
+                          contentPadding: EdgeInsets.symmetric(horizontal: 16.w),
                         ),
                         // Ensure input text styling is correct
-                        style: const TextStyle(
-                          fontSize: 16,
+                        style: TextStyle(
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.w500,
                           color: Colors.black,
                         ),
@@ -160,12 +161,12 @@ class RegisterPage extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 24),
+              SizedBox(height: 24.h),
 
               // Continue Button
               SizedBox(
                 width: double.infinity,
-                height: 52,
+                height: 52.h,
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.pushReplacement(
@@ -179,10 +180,10 @@ class RegisterPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: const Text(
+                  child: Text(
                     "Davom etish",
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.w600,
                       color: Colors.white,
                     ),
@@ -190,14 +191,13 @@ class RegisterPage extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 16),
+              SizedBox(height: 16.h),
 
-              // Terms and Privacy
               Text.rich(
                 TextSpan(
                   text: "Davom etish orqali siz ",
-                  style: const TextStyle(
-                    fontSize: 12,
+                  style: TextStyle(
+                    fontSize: 12.sp,
                     color: Colors.black54,
                   ),
                   children: [

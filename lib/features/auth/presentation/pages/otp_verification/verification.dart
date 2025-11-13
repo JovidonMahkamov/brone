@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'dart:async';
 
 import '../register_info/register_info.dart';
@@ -100,8 +101,8 @@ class _VerificationPageState extends State<VerificationPage> {
 
   Widget _buildOtpBox(int index) {
     return SizedBox(
-      width: 60,
-      height: 60,
+      width: 60.w,
+      height: 60.h,
       child: TextFormField(
         controller: _otpControllers[index],
         focusNode: _focusNodes[index],
@@ -118,10 +119,10 @@ class _VerificationPageState extends State<VerificationPage> {
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(color: Color(0xFF1E2D7D), width: 2),
+            borderSide: BorderSide(color: Color(0xFF1E2D7D), width: 2.w),
           ),
         ),
-        style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+        style: TextStyle(fontSize: 25.sp, fontWeight: FontWeight.bold),
         onChanged: (value) => _onOtpChange(value, index),
       ),
     );
@@ -141,20 +142,20 @@ class _VerificationPageState extends State<VerificationPage> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
+          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 32.h),
           child: Column(
             children: [
-              const SizedBox(height: 50),
-              const Text(
+              SizedBox(height: 50.h),
+              Text(
                 "Tasdiqlash kodini\nkiriting",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
+                style: TextStyle(fontSize: 30.sp, fontWeight: FontWeight.w700),
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16.h),
               Text.rich(
                 TextSpan(
                   text: "Tasdiqlash kodi ",
-                  style: const TextStyle(fontSize: 14, color: Color(0xFF757C9A)),
+                  style: TextStyle(fontSize: 14.sp, color: Color(0xFF757C9A)),
                   children: [
                     TextSpan(
                       text: widget.phoneNumber,
@@ -165,29 +166,29 @@ class _VerificationPageState extends State<VerificationPage> {
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 40),
+              SizedBox(height: 40.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: List.generate(_otpLength, _buildOtpBox),
               ),
-              const SizedBox(height: 32),
+              SizedBox(height: 32.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     "Qaytadan yuborish",
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w500,
                       color: _canResend ? const Color(0xFF1E2D7D) : Colors.black54,
                     ),
                   ),
-                  const SizedBox(width: 8),
+                  SizedBox(width: 8.w),
                   GestureDetector(
                     onTap: _resendCode,
                     child: Container(
-                      width: 36,
-                      height: 36,
+                      width: 36.w,
+                      height: 36.h,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
@@ -198,7 +199,7 @@ class _VerificationPageState extends State<VerificationPage> {
                       child: Text(
                         _canResend ? "OK" : "$_secondsRemaining",
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.w600,
                           color: _canResend ? const Color(0xFF1E2D7D) : Colors.black54,
                         ),
@@ -207,10 +208,10 @@ class _VerificationPageState extends State<VerificationPage> {
                   ),
                 ],
               ),
-              const SizedBox(height: 40),
+              SizedBox(height: 40.h),
               SizedBox(
                 width: double.infinity,
-                height: 52,
+                height: 52.h,
                 child: ElevatedButton(
                   onPressed: _otpControllers.every((c) => c.text.isNotEmpty)
                       ? _verifyAndProceed
@@ -220,9 +221,9 @@ class _VerificationPageState extends State<VerificationPage> {
                     disabledBackgroundColor: Colors.grey.shade300,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                   ),
-                  child: const Text(
+                  child: Text(
                     "Tasdiqlash",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.white),
+                    style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600, color: Colors.white),
                   ),
                 ),
               ),

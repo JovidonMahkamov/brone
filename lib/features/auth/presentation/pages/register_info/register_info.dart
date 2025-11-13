@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() => runApp(const MyApp());
 
@@ -44,32 +45,30 @@ class _RegistrationPageState extends State<RegistrationInfoPage> {
           onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
           child: SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              padding: EdgeInsets.symmetric(horizontal: 24.w),
               child: Column(
                 children: [
-                  // Tepadan katta bo'shliq + Title o'rtada
-                  const SizedBox(height: 120),
-                  const Text(
+                  SizedBox(height: 120.h),
+                  Text(
                     "Ro'yxatdan o'tish",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 30,
+                      fontSize: 30.sp,
                       fontWeight: FontWeight.w700,
                       color: Colors.black87,
-                      height: 1.2,
+                      height: 1.2.h,
                     ),
                   ),
-                  const SizedBox(height: 60),
+                  SizedBox(height: 60.h),
 
-                  // Ismingiz
-                  const Align(
+                  Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "Ismingiz",
-                      style: TextStyle(fontSize: 16, color: Colors.black),
+                      style: TextStyle(fontSize: 16.sp, color: Colors.black),
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  SizedBox(height: 8.h),
                   TextField(
                     controller: _nameController,
                     textCapitalization: TextCapitalization.words,
@@ -78,7 +77,7 @@ class _RegistrationPageState extends State<RegistrationInfoPage> {
                       hintStyle: const TextStyle(color: Color(0xFF9296A6)),
                       filled: true,
                       fillColor: const Color(0xFFF8F9FF),
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+                      contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 18.h),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                         borderSide: const BorderSide(color: Color(0xFFE5E7EB)),
@@ -89,22 +88,21 @@ class _RegistrationPageState extends State<RegistrationInfoPage> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
-                        borderSide: const BorderSide(color: Color(0xFF4A66D8), width: 2),
+                        borderSide: BorderSide(color: Color(0xFF4A66D8), width: 2.w),
                       ),
                     ),
                     onChanged: (_) => setState(() {}),
                   ),
-                  const SizedBox(height: 30),
+                  SizedBox(height: 30.h),
 
-                  // Familiyangiz
-                  const Align(
+                  Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       "Familiyangiz",
-                      style: TextStyle(fontSize: 16, color: Colors.black),
+                      style: TextStyle(fontSize: 16.sp, color: Colors.black),
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  SizedBox(height: 8.h),
                   TextField(
                     controller: _surnameController,
                     textCapitalization: TextCapitalization.words,
@@ -113,7 +111,7 @@ class _RegistrationPageState extends State<RegistrationInfoPage> {
                       hintStyle: const TextStyle(color: Color(0xFF9296A6)),
                       filled: true,
                       fillColor: const Color(0xFFF8F9FF),
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+                      contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 18.h),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                         borderSide: const BorderSide(color: Color(0xFFE5E7EB)),
@@ -124,20 +122,19 @@ class _RegistrationPageState extends State<RegistrationInfoPage> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
-                        borderSide: const BorderSide(color: Color(0xFF4A66D8), width: 2),
+                        borderSide: BorderSide(color: Color(0xFF4A66D8), width: 2.w),
                       ),
                     ),
                     onChanged: (_) => setState(() {}),
                   ),
 
-                  const SizedBox(height: 60),
+                  SizedBox(height: 60.h),
 
-                  // Tugma
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 30),
+                    padding: EdgeInsets.only(bottom: 30),
                     child: SizedBox(
                       width: double.infinity,
-                      height: 56,
+                      height: 56.h,
                       child: ElevatedButton(
                         onPressed: () {
                           if (_nameController.text.trim().isEmpty ||
@@ -156,10 +153,10 @@ class _RegistrationPageState extends State<RegistrationInfoPage> {
                               borderRadius: BorderRadius.circular(12)),
                           elevation: 0,
                         ),
-                        child: const Text(
+                        child: Text(
                           "Ro'yxatdan o'tish",
                           style: TextStyle(
-                            fontSize: 17,
+                            fontSize: 17.sp,
                             fontWeight: FontWeight.w600,
                             color: Colors.white,
                           ),

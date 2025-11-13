@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'register.dart'; // import your register page
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'register.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -41,12 +42,11 @@ class LogoWidget extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        // Logo image
         Image.asset(
-          'assets/images/brone_logo.png', // your logo path
-          height: 120,
+          'assets/images/brone_logo.png',
+          height: 120.h,
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: 12.h),
       ],
     );
   }

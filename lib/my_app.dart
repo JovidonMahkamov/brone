@@ -1,23 +1,34 @@
+
+
+
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/routes/route_generators.dart';
 import 'core/routes/route_names.dart';
 import 'features/auth/presentation/pages/splash_screen.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
 
-  Widget build(BuildContext context, ) {
-    return Builder(
-      builder:(builderContext){
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return ScreenUtilInit(
+      designSize: const Size(428, 926),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Brone',
           theme: ThemeData(
-            primarySwatch: Colors.orange,
-            fontFamily: 'Roboto',
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            useMaterial3: true,
           ),
-          // darkTheme: darkMode,
           home: const SplashPage(),
           onGenerateRoute: AppRoute(context: context).onGenerateRoute,
         );
