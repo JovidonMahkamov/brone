@@ -10,4 +10,10 @@ class RouteNames {
   static const String  generalAdd = '/generalAdd';
   static const String  videoEdit = '/videoEdit';
   static const String  addVideo = '/addVideo';
+
+  static const String register = "/register";
+
+  static const String verification = "/verification";
+
+  static const String registerInfo = "/registerInfo";
 }
