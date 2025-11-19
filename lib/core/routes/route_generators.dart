@@ -1,6 +1,8 @@
 import 'package:brone/core/routes/route_names.dart';
+import 'package:brone/features/profile/my_information.dart';
 import 'package:flutter/material.dart';
 
+import '../../bottom_nav_bar.dart';
 import '../../features/auth/presentation/pages/otp_verification/verification.dart';
 import '../../features/auth/presentation/pages/register.dart';
 import '../../features/auth/presentation/pages/register_info/register_info.dart';
@@ -20,6 +22,10 @@ class AppRoute {
         return MaterialPageRoute(builder: (_) => const VerificationPage());
       case RouteNames.registerInfo:
         return MaterialPageRoute(builder: (_) => const RegistrationInfoPage());
+      case RouteNames.bottomNavBar:
+        return MaterialPageRoute(builder: (_) => const BottomNavBarPage());
+      case RouteNames.myInfo:
+        return MaterialPageRoute(builder: (_) => const MyInformationPage());
 
       default:
         return _errorRoute();

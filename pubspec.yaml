@@ -41,6 +41,7 @@ dependencies:
   shared_preferences: ^2.0.0
   bloc: ^8.1.4
   flutter_screenutil: ^5.9.3
+  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +68,8 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/bottom_nav_bar/
+    - assets/profile/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

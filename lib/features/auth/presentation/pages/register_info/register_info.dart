@@ -1,19 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../../bottom_nav_bar.dart';
 
-void main() => runApp(const MyApp());
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const RegistrationInfoPage(),
-    );
-  }
-}
 
 class RegistrationInfoPage extends StatefulWidget {
   const RegistrationInfoPage({super.key});
@@ -137,14 +126,20 @@ class _RegistrationPageState extends State<RegistrationInfoPage> {
                       height: 56.h,
                       child: ElevatedButton(
                         onPressed: () {
-                          if (_nameController.text.trim().isEmpty ||
-                              _surnameController.text.trim().isEmpty) {
+                          final name = _nameController.text.trim();
+                          final surname = _surnameController.text.trim();
+                          if (name.isEmpty || surname.isEmpty) {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                  content: Text("Iltimos, barcha maydonlarni to'ldiring")),
+                              const SnackBar(content: Text("Iltimos, barcha maydonlarni to'ldiring")),
                             );
                             return;
                           }
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const BottomNavBarPage(),
+                            ),
+                          );
                           print("Muvaffaqiyatli: ${_nameController.text} ${_surnameController.text}");
                         },
                         style: ElevatedButton.styleFrom(

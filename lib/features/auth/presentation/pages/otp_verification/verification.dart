@@ -130,104 +130,103 @@ class _VerificationPageState extends State<VerificationPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
         backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.black54),
-          onPressed: () => Navigator.pop(context),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0,
         ),
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 32.h),
-          child: Column(
-            children: [
-              SizedBox(height: 50.h),
-              Text(
-                "Tasdiqlash kodini\nkiriting",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 30.sp, fontWeight: FontWeight.w700),
-              ),
-              SizedBox(height: 16.h),
-              Text.rich(
-                TextSpan(
-                  text: "Tasdiqlash kodi ",
-                  style: TextStyle(fontSize: 14.sp, color: Color(0xFF757C9A)),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 32.h),
+            child: Column(
+              children: [
+                SizedBox(height: 50.h),
+                Text(
+                  "Tasdiqlash kodini\nkiriting",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 30.sp, fontWeight: FontWeight.w700),
+                ),
+                SizedBox(height: 16.h),
+                Text.rich(
+                  TextSpan(
+                    text: "Tasdiqlash kodi ",
+                    style: TextStyle(fontSize: 14.sp, color: Color(0xFF757C9A)),
+                    children: [
+                      TextSpan(
+                        text: widget.phoneNumber,
+                        style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+                      ),
+                      const TextSpan(text: " raqamiga yuborildi"),
+                    ],
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 40.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: List.generate(_otpLength, _buildOtpBox),
+                ),
+                SizedBox(height: 32.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    TextSpan(
-                      text: widget.phoneNumber,
-                      style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+                    Text(
+                      "Qaytadan yuborish",
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w500,
+                        color: _canResend ? const Color(0xFF1E2D7D) : Colors.black54,
+                      ),
                     ),
-                    const TextSpan(text: " raqamiga yuborildi"),
+                    SizedBox(width: 8.w),
+                    GestureDetector(
+                      onTap: _resendCode,
+                      child: Container(
+                        width: 36.w,
+                        height: 36.h,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: _canResend ? const Color(0xFF1E2D7D) : Colors.black12,
+                          ),
+                        ),
+                        child: Text(
+                          _canResend ? "OK" : "$_secondsRemaining",
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w600,
+                            color: _canResend ? const Color(0xFF1E2D7D) : Colors.black54,
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 40.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: List.generate(_otpLength, _buildOtpBox),
-              ),
-              SizedBox(height: 32.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Qaytadan yuborish",
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
-                      color: _canResend ? const Color(0xFF1E2D7D) : Colors.black54,
+                SizedBox(height: 40.h),
+                SizedBox(
+                  width: double.infinity,
+                  height: 52.h,
+                  child: ElevatedButton(
+                    onPressed: _otpControllers.every((c) => c.text.isNotEmpty)
+                        ? _verifyAndProceed
+                        : null, // Disable if not full
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF1E2D7D),
+                      disabledBackgroundColor: Colors.grey.shade300,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                     ),
-                  ),
-                  SizedBox(width: 8.w),
-                  GestureDetector(
-                    onTap: _resendCode,
-                    child: Container(
-                      width: 36.w,
-                      height: 36.h,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: _canResend ? const Color(0xFF1E2D7D) : Colors.black12,
-                        ),
-                      ),
-                      child: Text(
-                        _canResend ? "OK" : "$_secondsRemaining",
-                        style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w600,
-                          color: _canResend ? const Color(0xFF1E2D7D) : Colors.black54,
-                        ),
-                      ),
+                    child: Text(
+                      "Tasdiqlash",
+                      style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600, color: Colors.white),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 40.h),
-              SizedBox(
-                width: double.infinity,
-                height: 52.h,
-                child: ElevatedButton(
-                  onPressed: _otpControllers.every((c) => c.text.isNotEmpty)
-                      ? _verifyAndProceed
-                      : null, // Disable if not full
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF1E2D7D),
-                    disabledBackgroundColor: Colors.grey.shade300,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                  ),
-                  child: Text(
-                    "Tasdiqlash",
-                    style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600, color: Colors.white),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
