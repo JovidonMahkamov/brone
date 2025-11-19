@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class StatistikWidget extends StatefulWidget {
   const StatistikWidget({super.key});
@@ -13,17 +14,17 @@ class _StatistikWidgetState extends State<StatistikWidget> {
     return Container(
       alignment: Alignment.centerLeft,
       padding: EdgeInsets.only(right: 5),
-      height: 120,
+      height: 150.h,
       width: double.infinity,
       decoration: BoxDecoration(
         image: const DecorationImage(
-          image: AssetImage('assets/report/ajibuji.png'), 
+          image: AssetImage('assets/report/ajibuji.png'),
           fit: BoxFit.contain,
           alignment: Alignment.centerRight,
 
         ),
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(10),
         border: Border.all(color: Color(0xffDEE3FB), width: 1),
         boxShadow: [
           BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 5),
@@ -37,11 +38,12 @@ class _StatistikWidgetState extends State<StatistikWidget> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(height: 13.h),
                 Text(
                   'Umumiy daromad',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 20.h),
                 Text(
                   '6,165,000 so’m',
                   style: TextStyle(

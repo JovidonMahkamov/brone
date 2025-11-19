@@ -24,7 +24,7 @@ class _ReportPageState extends State<ReportPage> {
           children: [
             Text(
               'Mijozlar qabuli bo’yicha\nstatistka',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.sp),
             ),
           ],
         ),
@@ -36,7 +36,7 @@ class _ReportPageState extends State<ReportPage> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(25),
+        padding:  EdgeInsets.all(25.sp),
         child: Column(
           children: [
             StatistikWidget(),

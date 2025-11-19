@@ -17,7 +17,7 @@ class _StatistikWidget2State extends State<StatistikWidget2> {
     return Container(
       alignment: Alignment.centerLeft,
       padding: EdgeInsets.only(right: 5),
-      height: 120,
+      height: 150.h,
       width: double.infinity,
       decoration: BoxDecoration(
         image: const DecorationImage(
@@ -27,7 +27,7 @@ class _StatistikWidget2State extends State<StatistikWidget2> {
 
         ),
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(10),
         border: Border.all(color: Color(0xffDEE3FB), width: 1),
         boxShadow: [
           BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 5),
@@ -49,8 +49,7 @@ class _StatistikWidget2State extends State<StatistikWidget2> {
                 Text(
                   widget.text1,
                   style: TextStyle(
-                    color: Color(0xff22348A),
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w400,
                     fontSize: 15.sp,
                   ),
                 ),
@@ -58,8 +57,7 @@ class _StatistikWidget2State extends State<StatistikWidget2> {
                 Text(
                   widget.text2,
                   style: TextStyle(
-                    color: Color(0xff22348A),
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w400,
                     fontSize: 15.sp,
                   ),
                 ),

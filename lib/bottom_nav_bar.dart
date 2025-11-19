@@ -1,15 +1,16 @@
-import 'package:brone/features/Add/presentation/pages/add_page.dart';
-import 'package:brone/features/Video/presentation/pages/Video.dart';
+import 'package:brone/features/Add/presentation/pages/general_add_page.dart';
 import 'package:brone/features/report/presentation/pages/report_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'features/Video/presentation/pages/shorts_main_page.dart';
 import 'features/home/presentation/pages/home_page.dart';
 import 'features/profile/presentation/pages/profile_page.dart';
 
 class BottomNavBarPage extends StatefulWidget {
-  const BottomNavBarPage({super.key});
+  final int initialIndex;
+  const BottomNavBarPage({super.key,  this.initialIndex= 0});
 
   @override
   State<BottomNavBarPage> createState() => _BottomNavBarPageState();
@@ -17,12 +18,16 @@ class BottomNavBarPage extends StatefulWidget {
 
 class _BottomNavBarPageState extends State<BottomNavBarPage> {
   int _currentIndex = 0;
+  void initState() {
+    super.initState();
+    _currentIndex = widget.initialIndex; // initialIndex dan olamiz
+  }
 
   final List<Widget> pages = [
     HomePage(),
     ReportPage(),
-    AddPage(),
-    VideoPage(),
+    GeneralAddPage(),
+    ShortsMainPage(),
     ProfilePage(),
   ];
 
@@ -41,6 +46,14 @@ class _BottomNavBarPageState extends State<BottomNavBarPage> {
     "Videolar",
     "Profil",
   ];
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final args = ModalRoute.of(context)?.settings.arguments;
+    if (args != null && args is int) {
+      _currentIndex = args;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +65,7 @@ class _BottomNavBarPageState extends State<BottomNavBarPage> {
       child: Scaffold(
         body: pages[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.white,
           type: BottomNavigationBarType.fixed,
           currentIndex: _currentIndex,
           onTap: (int newIndex) {
