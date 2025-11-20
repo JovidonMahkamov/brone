@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MyInformationPage extends StatefulWidget {
   const MyInformationPage({super.key});
@@ -27,17 +28,9 @@ class _MyInformationPageState extends State<MyInformationPage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: Container(
-          margin: const EdgeInsets.only(left: 16),
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.black26),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: IconButton(
-            icon: const Icon(Icons.arrow_back_ios_new, size: 18),
-            onPressed: () => Navigator.pop(context),
-          ),
-        ),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: SvgPicture.asset("assets/profile/go_back.svg")),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20),

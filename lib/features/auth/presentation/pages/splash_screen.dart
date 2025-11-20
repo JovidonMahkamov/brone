@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'register.dart';
 
 class SplashPage extends StatefulWidget {
@@ -43,7 +44,7 @@ class LogoWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset(
-          'assets/images/brone_logo.png',
+          'assets/images/brone.png',
           height: 120.h,
         ),
         SizedBox(height: 12.h),

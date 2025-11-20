@@ -17,7 +17,6 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Material(
       color: Colors.white,
-      child: SafeArea(
         child: Stack(
           children: [
             Column(
@@ -25,7 +24,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 // Blue Header
                 Container(
                   width: double.infinity,
-                  padding: EdgeInsets.fromLTRB(24.w, 40.h, 24.w, 32.h),
+                  padding: EdgeInsets.fromLTRB(24.w, 60.h, 24.w, 32.h),
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       colors: [Color(0xFF1E3A8A), Color(0xFF22348A)],
@@ -151,7 +150,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
           ],
         ),
-      ),
+
     );
   }
 

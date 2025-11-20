@@ -1,12 +1,9 @@
 
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/routes/route_generators.dart';
 import 'core/routes/route_names.dart';
-import 'features/auth/presentation/pages/splash_screen.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
